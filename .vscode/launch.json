@@ -1,0 +1,28 @@
+// {
+//     "version": "0.2.0",
+//     "configurations": [
+//       {
+//         "name": "Playwright Debug",
+//         "type": "node",
+//         "request": "launch",
+//         "program": "${workspaceFolder}/node_modules/.bin/playwright",
+//         "args": [
+//           "test",
+//           "--headed",
+//           "--project=chromium",
+//           "${file}"
+//         ],
+//         "console": "integratedTerminal",
+//         "env": {
+//           "NODE_OPTIONS": "--require ts-node/register"
+//         },
+//         "sourceMaps": true,
+//         "resolveSourceMapLocations": [
+//           "${workspaceFolder}/**",
+//           "!**/node_modules/**"
+//         ],
+//         "cwd": "${workspaceFolder}",
+//         "internalConsoleOptions": "neverOpen"
+//       }
+//     ]
+//   }
