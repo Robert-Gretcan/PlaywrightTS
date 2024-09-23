@@ -1,5 +1,5 @@
 import { Before, After, BeforeAll, AfterAll } from "@cucumber/cucumber";
-import { chromium, Page, Browser } from 'playwright';
+import { chromium, Browser } from 'playwright';
 import { SeleniumPage } from "../pages/SeleniumPage";
 
 let browser: Browser;

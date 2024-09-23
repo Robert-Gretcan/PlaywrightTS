@@ -1,5 +1,0 @@
-default:
-    features: ["./src/features/**/*.feature"]
-    requireModule: ["ts-node/register"]
-    require: ["./src/step-definitions/**/*.{js,ts}"]
-    publishQuiet: true
