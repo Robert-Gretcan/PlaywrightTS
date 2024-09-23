@@ -2,13 +2,17 @@
   "name": "playwrightts",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "cucumber-js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@cucumber/cucumber": "^11.0.1",
     "@playwright/test": "^1.45.3",
-    "@types/node": "^22.0.0"
+    "@types/node": "^22.5.5",
+    "ts-node": "^10.9.2"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "default": {
+    
+    "require": ["./src/hooks/hooks.ts","./src/step-definitions/**/*.ts"],
+    "paths": ["./src/features/**/*.feature"], 
+    "format": ["progress"],
+    "requireModule": ["ts-node/register"]
+  }
+}

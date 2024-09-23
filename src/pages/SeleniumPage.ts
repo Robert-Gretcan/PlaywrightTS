@@ -3,11 +3,11 @@ import { expect, FrameLocator, type Locator, type Page } from '@playwright/test'
 
 export class SeleniumPage {
 
-    readonly page: Page;
-    readonly textInputField: Locator;
-    readonly hoverLocator: Locator;
-    readonly selectDropdown: Locator;
-    readonly textIFrame: Locator;
+    private readonly page: Page;
+    private readonly textInputField: Locator;
+    private readonly hoverLocator: Locator;
+    private readonly selectDropdown: Locator;
+    private readonly textIFrame: Locator;
 
     private URL: string = "https://seleniumbase.io/demo_page";
 
@@ -26,27 +26,26 @@ export class SeleniumPage {
 
     async fillText(text: string) {
         await this.textInputField.fill(text);
-
     }
 
-    async getHoverDropdownList() {
-        //using methods with selectors
+    async hoverOverDropdownList() {
         await this.page.hover("#myDropdown");
-
-        // Check if the dropdown contains the expected child <a> tags
-        const dropdownItems = await this.page.$$(".dropdown-content" + ' a');
-        expect(dropdownItems.length).toBe(3);
-
     }
-
-    async selectOption(option: string) {
-
-        await expect(this.selectDropdown).toBeVisible();
+    async checkHoverItems(expected: number) {
+        const dropdownItems = await this.page.$$(".dropdown-content" + ' a');
+        expect(dropdownItems.length).toBe(expected);
+    }
+    async openSelectDropDown() {
+        await expect(this.selectDropdown).toBeVisible();        
+    }
+    async selectOption(option: number) {       
         await this.selectDropdown.selectOption(`Set to ${option}%`);
+    }
+    async expectMeterBar(option: number) {
         //get html meter bar value attribute
         let meterBar = await this.page.locator("#meterBar").getAttribute("value");
         //check progress bar is updated accordingly
-        expect(meterBar).toBe((parseInt(option) / 100).toString());
+        expect(meterBar).toBe((option / 100).toString());
     }
 
     async getIframeText() {
